@@ -6,7 +6,10 @@ import Image from "next/image";
 import React from "react";
 import AddToCart from "../Add-cart";
 
-const ProductDetails = async ({ params }: { params: { id: number } }) => {
+interface ProductDetailsProps {
+  params: { id: string }; // Note that params.id should be a string (URL params are strings)
+}
+const ProductDetails = async ({ params }: ProductDetailsProps) => {
   const id = params?.id.toString();
   const singleProduct: Product = await getSinglePorduct(id);
   const relatedProduct: Product[] = await getProductByCategory(
