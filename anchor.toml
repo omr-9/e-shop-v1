@@ -1,0 +1,10 @@
+[lcl-host]
+realm-apid = 'localhost'
+
+[org]
+apid = 'omr-9'
+
+[service]
+apid = 'e-commerce'
+category = 'javascript'
+cert-style = 'acme'
