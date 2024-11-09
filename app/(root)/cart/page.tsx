@@ -61,8 +61,8 @@ const Cart = () => {
           <Image
             src="/images/noitems.jpeg"
             alt="empty cart"
-            width={400}
-            height={400}
+            width={300}
+            height={300}
             className="object-contain"
           />
           <Link href="/">
@@ -88,7 +88,7 @@ const Cart = () => {
                       alt={item.title}
                       width={180}
                       height={180}
-                      className="object-contain"
+                      className="object-contain aspect-auto"
                     />
                   </div>
                   <div>
