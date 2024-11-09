@@ -1,18 +1,12 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation"; // Client-side useSearchParams hook
 
-
-interface SearchPageProps {
-  searchParams: {
-    totalPrice: string;
-  };
-}
-export default async function PaymentSuccess({ searchParams }: SearchPageProps) {
-  const { totalPrice } = await searchParams;
-  // Destructuring to get the `totalPrice` from searchParams
-  // const { totalPrice } = await searchParams;
-
+// The `searchParams` will be automatically provided by Next.js (no need to pass it as a prop)
+export default function PaymentSuccess({
+  searchParams,
+}: {
+  searchParams: { totalPrice: string };
+}) {
   return (
     <main className="max-w-6xl mx-auto p-10 text-white text-center border m-10 rounded-md bg-indigo-950">
       <div className="mb-10">
@@ -20,15 +14,12 @@ export default async function PaymentSuccess({ searchParams }: SearchPageProps) 
         <h2 className="text-2xl">You successfully sent</h2>
 
         <div className="bg-white p-2 rounded-md text-indigo-950 mt-5 text-4xl font-bold">
-          $ {totalPrice}
+          ${searchParams.totalPrice}
         </div>
 
         <Link href="/">
-          <Button
-            className="text-xl hover:bg-indigo-950 hover:border  bg-white mt-6 text-indigo-950 font-semibold hover:text-white "
-            size={"lg"}
-          >
-            Buy More{" "}
+          <Button className="text-xl hover:bg-indigo-950 hover:border bg-white mt-6 text-indigo-950 font-semibold hover:text-white" size={"lg"}>
+            Buy More
           </Button>
         </Link>
       </div>
