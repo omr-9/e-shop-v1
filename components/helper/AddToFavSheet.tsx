@@ -2,7 +2,6 @@
 import { HeartIcon, } from 'lucide-react'
 import React from 'react'
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet'
-// import CartSidebar from './CartSidebar'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
 import FavSidebar from './FavSidebar'

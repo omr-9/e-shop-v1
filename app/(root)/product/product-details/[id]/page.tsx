@@ -1,3 +1,4 @@
+
 import ProductCard from "@/components/home/ProductCard";
 import { getProductByCategory, getSinglePorduct } from "@/Request/requests";
 import { Product } from "@/types";
@@ -6,10 +7,10 @@ import Image from "next/image";
 import React from "react";
 import AddToCart from "../Add-cart";
 
-// Marking the component as async
+
 const ProductDetails = async ({ params }: { params: { id: string } }) => {
  
-  const { id } = await params;
+  const { id } =  await params;
 
   console.log(id);
 

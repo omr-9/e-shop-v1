@@ -35,7 +35,7 @@ const CheckoutForm = ({ totalPriceWithVat }: { totalPriceWithVat: number }) => {
         event.preventDefault()
 
         if (!stripe || !elements || !clientSecret) {
-            return; // Make sure Stripe.js and elements are loaded, and clientSecret is available
+            return; 
         }
 
         setLoading(true) // Start loading state

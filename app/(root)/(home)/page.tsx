@@ -4,11 +4,10 @@ import Image from "next/image";
 
 export default function HomePage() {
   return (
-<div>
-  <SessionProvider>
-
-  <Home />
-  </SessionProvider>
-</div>
+    <div>
+      <SessionProvider>
+        <Home />
+      </SessionProvider>
+    </div>
   );
 }
