@@ -14,8 +14,7 @@ const Footer = () => {
             className='object-contain'
           ></Image>
             <p className='text-black opacity-50 text-sm '>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore ipsum atque alias tenetur est consequuntur obcaecati, eaque voluptate, omnis voluptas provident, culpa libero? Maxime quos tempore cupiditate. Consequatur, reprehenderit aut.</p>
-            <p className='mt-4 text-black text-base opacity-80'>123456789 - info@example.com
-
+            <p className='mt-4 text-black text-base opacity-80'>123456789 - <a className='hover:underline hover:text-blue-600' href="mailto:omaralsharkawi9@gmail.com">omaralsharkawi9@gmail.com</a>
             </p>
         </div>
         <div className='lg:mx-auto'>
@@ -42,7 +41,7 @@ const Footer = () => {
         </div>
       </div>
       <div className='mt-8 gap-6 grid grid-cols-1 sm:grid-cols-2 justify-between w-4/5 mx-auto'>
-      <p className='text-sm text-black opacity-75'>&copy; Copyright webdevwarriors 2024 </p>
+      <p className='text-sm text-black opacity-75'>&copy; Copyright omar-mohamed 2024 </p>
       <Image src='/images/pay.svg' className='object-contain sm:ml-auto' width={220} height={220} alt='pay image'/>
 
       </div>

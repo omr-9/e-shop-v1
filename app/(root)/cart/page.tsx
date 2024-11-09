@@ -59,10 +59,10 @@ const Cart = () => {
       {items.length === 0 && (
         <div className="flex w-full h-[80vh] items-center justify-center flex-col">
           <Image
-            src="/images/noitems.jpeg"
+            src="/images/noitems.png"
             alt="empty cart"
-            width={300}
-            height={300}
+            width={400}
+            height={400}
             className="object-contain"
           />
           <Link href="/">
@@ -74,22 +74,25 @@ const Cart = () => {
       )}
 
       {items.length > 0 && (
-        <div className="w-4/5 mx-auto grid grid-cols-1 xl:grid-cols-6 gap-12">
+        <div className="w-4/5  mx-auto grid grid-cols-1 xl:grid-cols-6 gap-12">
           <div className="xl:col-span-4 rounded-lg shadow-md overflow-hidden">
             <h1 className="p-4 bg-indigo-950 text-white font-semibold text-xl sm:text-2xl md:text-3xl">
               Your Cart ({totalQuantity} Items)
             </h1>
             {items.map((item) => (
               <div key={item.id}>
-                <div className="border-b-[1.5px] border-gray-500 rounded-lg p-5 border-opacity-20 mt-3 flex items-center space-x-10 pb-6">
-                  <div>
+                <div className="border-b-[1.5px] mt-5 border-gray-500 rounded-lg p-5 border-opacity-20  flex items-center flex-col md:flex-row  md:mb-0 md:space-x-10 pb-6">
+                  <div className="mb-10">
+                    <Link href={`/product/product-details/${item.id}`}>
+                    
                     <Image
                       src={item.image}
                       alt={item.title}
                       width={180}
                       height={180}
-                      className="object-contain aspect-auto"
+                      className="object-contain aspect-auto "
                     />
+                    </Link>
                   </div>
                   <div>
                     <div className="space-y-1">

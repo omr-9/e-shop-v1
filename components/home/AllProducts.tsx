@@ -18,15 +18,20 @@ const AllProducts = () => {
       setLoading(true);
       try {
         const allProducts: Product[] = await getAllProducts();
-        if (selectedCategory && selectedCategory !== "All") {
-          // Filter products by selected category, excluding "All"
+        if (selectedCategory === "Top price") {
+          const filteredTopPriceProducts = allProducts.filter(
+            (product) => product.price >= 100 
+          );
+          setProducts(filteredTopPriceProducts);
+        } else if (selectedCategory === "All" || !selectedCategory) {
+          // Show all products if "All" is selected
+          setProducts(allProducts);
+        } else {
+        
           const filteredProducts = allProducts.filter(
             (product) => product.category.toLowerCase() === selectedCategory.toLowerCase()
           );
           setProducts(filteredProducts);
-        } else {
-          // display all products 
-          setProducts(allProducts);
         }
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -48,7 +53,7 @@ const AllProducts = () => {
 
       <Categorey onSelectCategory={handleSelectCategory} activeCategory={selectedCategory} /> {/* Pass handler to Categorey */}
 
-      <h1 className="font-bold text-center text-2xl lg:text-3xl capitalize">{selectedCategory} Products</h1>
+      <h1 className="font-bold text-center text-2xl lg:text-3xl mt-10 capitalize">{selectedCategory} Products</h1>
       {loading ? (
         <div className="mt-16 flex justify-center items-center">
           <Loader />

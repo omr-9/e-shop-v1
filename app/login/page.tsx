@@ -1,7 +1,8 @@
 
 import { auth, signIn } from "@/app/(auth)/authSetup";
 import { FaGithub, FaGoogle, FaTwitter } from "react-icons/fa";
-import Link from "next/link";
+
+import { redirect } from "next/navigation";
 
 const LoginPage =  async () => {
   const session = await auth()
@@ -12,10 +13,7 @@ const LoginPage =  async () => {
 
     
 
-        {session?.user ? (<div className="text-center">
-          <h2 className="text-2xl font-semibold mb-4 mx-auto ">{`Hello ${session.user.name}`}</h2>
-          <Link href='/' className="hover:underline text-gray-700 text-lg font-semibold">Go To Home Page</Link>
-        </div>) : (
+        {session?.user ? redirect('/') : (
           <div>
           <h2 className="text-2xl font-semibold mb-4 mx-auto text-center">
           Login
@@ -60,7 +58,7 @@ const LoginPage =  async () => {
       </form>
       <div className="w-full rounded-2xl h-[1.5px] border my-6 relative"><span className=" absolute top-0 left-[50%] bg-gray-50  px-4 -translate-y-[50%] -translate-x-[50%] flex items-center justify-center font-semibold">Or</span></div>
         <div className="flex space-x-10 items-center ">
-          <div className="w-1/2 flex justify-center border rounded-xl p-4 cursor-pointer">
+          <div className="w-1/2 flex items-center justify-center border rounded-xl p-4 cursor-pointer">
             <form
               action={async () => {
                 "use server";
@@ -72,8 +70,7 @@ const LoginPage =  async () => {
               </button>
             </form>
           </div>
-          {/* <p className="text-gray-500 font-bold text-xl">Or</p> */}
-          <div className="w-1/2 flex justify-center mt-2 border rounded-xl p-4 cursor-pointer">
+          <div className="w-1/2 flex items-center justify-center  border rounded-xl p-4 cursor-pointer">
             <form
               action={async () => {
                 "use server";

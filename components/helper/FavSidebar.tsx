@@ -75,9 +75,9 @@ const FavSidebar = ({ items }: Props) => {
                   ${(item?.price).toFixed(2)}
                 </h1>
 
-                <div className="flex items-center justify-between mt-2 ">
+                <div className="flex items-center justify-between mt-4 ">
                   <AlertDialog>
-                    <AlertDialogTrigger className="bg-red-600 text-white py-2 px-4 rounded-lg text-lg font-semibold capitalize hover:bg-red-800">remove</AlertDialogTrigger>
+                    <AlertDialogTrigger  className="bg-red-600 text-white !py-2 !px-4 rounded-lg text-sm md:text-lg  md:font-semibold capitalize hover:bg-red-800">remove</AlertDialogTrigger>
                     <AlertDialogContent>
                       <AlertDialogHeader>
                         <AlertDialogTitle>
@@ -88,9 +88,9 @@ const FavSidebar = ({ items }: Props) => {
                         </AlertDialogDescription>
                       </AlertDialogHeader>
                       <AlertDialogFooter>
-                        <AlertDialogCancel>Cancel</AlertDialogCancel>
+                        <AlertDialogCancel >Cancel</AlertDialogCancel>
 
-                        <AlertDialogAction className="bg-red-600" 
+                        <AlertDialogAction  className= " bg-red-600" 
                             onClick={() => {
                               handleRemove(item.id);
                             }} >
@@ -101,8 +101,8 @@ const FavSidebar = ({ items }: Props) => {
                     </AlertDialogContent>
                   </AlertDialog>
                 <Link  href={`/product/product-details/${item.id}`}>
-        <button className="bg-indigo-800 px-4 py-2 text-white rounded-lg text-lg font-semibold capitalize hover:bg-indigo-950">
-          View product 
+        <button className="bg-indigo-800 px-4 py-2 text-white rounded-lg text-sm md:text-lg md:font-semibold capitalize hover:bg-indigo-950">
+          View  
         </button>
       </Link>
                 </div>
