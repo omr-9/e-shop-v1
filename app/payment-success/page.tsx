@@ -1,12 +1,14 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-// The `searchParams` will be automatically provided by Next.js (no need to pass it as a prop)
-export default function PaymentSuccess({
+export default async function PaymentSuccess({
   searchParams,
 }: {
-  searchParams: { totalPrice: string };
+  searchParams: Promise<{ totalPrice: string }>;
 }) {
+  
+  const { totalPrice } = await searchParams;
+
   return (
     <main className="max-w-6xl mx-auto p-10 text-white text-center border m-10 rounded-md bg-indigo-950">
       <div className="mb-10">
@@ -14,7 +16,7 @@ export default function PaymentSuccess({
         <h2 className="text-2xl">You successfully sent</h2>
 
         <div className="bg-white p-2 rounded-md text-indigo-950 mt-5 text-4xl font-bold">
-          ${searchParams.totalPrice}
+          ${totalPrice}
         </div>
 
         <Link href="/">
