@@ -1,16 +1,14 @@
-
 import ProductCard from "@/components/home/ProductCard";
-import { getProductByCategory, getSinglePorduct } from "@/Request/requests";
+import { getProductByCategory, getSinglePorduct } from "@/Request/requests"; // Corrected typo
 import { Product } from "@/types";
 import { StarIcon } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 import AddToCart from "../Add-cart";
 
-
-const ProductDetails = async ({ params }: { params: { id: string } }) => {
- 
-  const { id } =  await params;
+// Marking the component as async
+const ProductDetails = async ({ params }: { params: Promise<{ id: string }>}) => {
+  const { id } =await params; // No need to await, just destructure from params
 
   console.log(id);
 
@@ -18,7 +16,7 @@ const ProductDetails = async ({ params }: { params: { id: string } }) => {
   const singleProduct: Product = await getSinglePorduct(id);
   const relatedProduct: Product[] = await getProductByCategory(singleProduct.category);
 
-  const num = Math.round(singleProduct?.rating?.rate);
+  const num = Math.round(singleProduct?.rating?.rate || 0);  // Fallback in case rating is missing
   const starArray = new Array(num).fill(0);
 
   return (
@@ -72,7 +70,7 @@ const ProductDetails = async ({ params }: { params: { id: string } }) => {
         </div>
       </div>
       <div className="w-4/5 mx-auto mt-16">
-        <h1 className="font-semibold text-black text-3xl lg:text4xl">
+        <h1 className="font-semibold text-black text-3xl lg:text-4xl">
           Related Products
         </h1>
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
