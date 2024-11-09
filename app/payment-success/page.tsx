@@ -2,13 +2,16 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation"; // Client-side useSearchParams hook
 
-export default async function PaymentSuccess({
-  searchParams,
-}: {
-  searchParams: { totalPrice: string }; // Defining type for searchParams
-}) {
-  // Destructuring to get the `totalPrice` from searchParams
+
+interface SearchPageProps {
+  searchParams: {
+    totalPrice: string;
+  };
+}
+export default async function PaymentSuccess({ searchParams }: SearchPageProps) {
   const { totalPrice } = await searchParams;
+  // Destructuring to get the `totalPrice` from searchParams
+  // const { totalPrice } = await searchParams;
 
   return (
     <main className="max-w-6xl mx-auto p-10 text-white text-center border m-10 rounded-md bg-indigo-950">
